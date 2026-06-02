@@ -6,14 +6,14 @@
 <title>Nerón+ | Precios Mayoristas — Junio 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-  :root {
-    --yellow:#F5C800; --red:#e63946; --dark:#121212; --darker:#0a0a0a;
-    --card:#1c1c1c; --border:rgba(255,255,255,0.08); --text:#f0f0f0;
-    --muted:#888; --green:#2dc653; --blue:#4ea8de; --orange:#f4a261;
-    --purple:#b388ff; --radius:14px; --img-h:140px;
-  }
+  :root{--yellow:#F5C800;--dark:#121212;--darker:#0a0a0a;--card:#1c1c1c;
+    --border:rgba(255,255,255,0.08);--text:#f0f0f0;--muted:#888;
+    --green:#2dc653;--blue:#4ea8de;--orange:#f4a261;--purple:#b388ff;
+    --radius:14px;--img-h:140px;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;}
+
+  /* HEADER */
   .header{background:#111;border-bottom:2px solid var(--yellow);padding:20px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
   .header-left{display:flex;align-items:center;gap:20px;}
   .logo-img{height:52px;}
@@ -22,24 +22,44 @@
   .header-right{text-align:right;}
   .mes-badge{font-size:2.6rem;font-weight:900;color:var(--yellow);letter-spacing:1px;line-height:1;}
   .iva-note{font-size:0.72rem;color:var(--muted);margin-top:4px;}
+
+  /* TOOLBAR */
   .toolbar{background:#161616;padding:14px 36px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);backdrop-filter:blur(8px);}
   .search-box{flex:1;min-width:200px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 14px;color:var(--text);font-size:0.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
   .search-box:focus{border-color:var(--yellow);}
   .search-box::placeholder{color:var(--muted);}
   .filter-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 14px;color:var(--muted);font-size:0.8rem;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
   .filter-btn:hover,.filter-btn.active{background:var(--yellow);color:#000;border-color:var(--yellow);font-weight:700;}
+
+  /* MAIN */
   main{padding:28px 36px 48px;}
-  .section{margin-bottom:48px;}
-  .section-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+  .section{margin-bottom:56px;}
+
+  /* SECTION HEADER */
+  .section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border);}
   .section-title{font-size:1.35rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;}
   .section-icon{font-size:1.3rem;}
-  .cat-pelotas .section-title{color:var(--yellow);}
+  .section-badge{font-size:0.68rem;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(245,200,0,0.15);color:var(--yellow);border:1px solid rgba(245,200,0,0.3);margin-left:4px;}
+  .cat-mayoristas .section-title{color:var(--yellow);}
+  .cat-mayoristas{border-left:3px solid var(--yellow);padding-left:16px;}
   .cat-grip .section-title{color:var(--blue);}
   .cat-protectores .section-title{color:var(--orange);}
-  .cat-resinas .section-title{color:var(--green);}
+  .cat-gripmas .section-title{color:var(--green);}
   .cat-cancha .section-title{color:var(--purple);}
+  .cat-pelotas .section-title{color:#ffd166;}
   .cat-accesorios .section-title{color:#aaa;}
+
+  /* SUBSECTION TITLE (within Mayoristas) */
+  .subsection-title{font-size:1rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:28px 0 12px;padding:8px 0;border-bottom:1px solid var(--border);}
+
+  /* SUBSECTION BRAND LABEL */
+  .subsection-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:16px 0 10px;padding-left:2px;display:flex;align-items:center;gap:8px;}
+  .subsection-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  /* GRID */
   .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+
+  /* CARD */
   .product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;display:flex;flex-direction:column;}
   .product-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,0.5);border-color:rgba(255,255,255,0.15);}
   .card-img-wrap{width:100%;height:var(--img-h);background:#1a1a1a;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
@@ -58,18 +78,26 @@
   .price-row.pvp{margin-top:4px;padding-top:6px;border-top:1px dashed rgba(255,255,255,0.06);border-bottom:none;}
   .price-row.pvp .price-label{color:#555;font-style:italic;}
   .price-row.pvp .price-value{color:#666!important;font-size:0.78rem!important;font-weight:500!important;}
-  .subsection-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:20px 0 10px;padding-left:2px;display:flex;align-items:center;gap:8px;}
-  .subsection-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  /* SIN STOCK */
+  .product-card.sin-stock{opacity:0.42;filter:grayscale(80%);}
+  .product-card.sin-stock:hover{transform:none;box-shadow:none;}
+  .sin-stock-badge{position:absolute;top:8px;right:8px;background:#555;color:#fff;font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border-radius:4px;z-index:2;}
+
+  .hidden{display:none!important;}
   .empty-state{text-align:center;padding:60px 24px;color:var(--muted);display:none;}
   .empty-state.visible{display:block;}
   .empty-state .emoji{font-size:2.5rem;margin-bottom:12px;}
-  .product-card.sin-stock{opacity:0.45;filter:grayscale(80%);}
-  .product-card.sin-stock:hover{transform:none;box-shadow:none;}
-  .sin-stock-badge{position:absolute;top:8px;right:8px;background:#555;color:#fff;font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border-radius:4px;z-index:2;}
-  .hidden{display:none!important;}
+
   footer{background:#111;border-top:1px solid var(--border);padding:18px 36px;text-align:center;font-size:0.73rem;color:var(--muted);}
   footer strong{color:var(--yellow);}
-  @media(max-width:600px){.header,main,.toolbar{padding-left:14px;padding-right:14px;}.mes-badge{font-size:2rem;}.product-grid{grid-template-columns:repeat(2,1fr);}}
+
+  @media(max-width:600px){
+    .header,main,.toolbar{padding-left:14px;padding-right:14px;}
+    .mes-badge{font-size:2rem;}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .cat-mayoristas{padding-left:8px;}
+  }
 </style>
 </head>
 <body>
@@ -80,7 +108,7 @@
     <div class="header-info">
       <strong>Distribuidor oficial:</strong> PENN · ODEA · BULLPADEL · MADMA · VARLION · SIUX · NOX · HUBIS · ROYAL PADEL<br>
       📞 3853034521 &nbsp;·&nbsp; 📍 Av. Belgrano Norte 1085, local 3 · Santiago del Estero<br>
-      <span style="color:var(--yellow);font-size:0.7rem;">📅 Actualización Junio 2026 — Estructura renovada con imágenes locales · Precios Mayorista + Multimarca</span>
+      <span style="color:var(--yellow);font-size:0.7rem;">📅 Actualización Junio 2026 — Precios Mayoristas + Multimarca por categoría</span>
     </div>
   </div>
   <div class="header-right">
@@ -92,190 +120,25 @@
 <div class="toolbar">
   <input class="search-box" type="text" id="searchInput" placeholder="🔍  Buscar producto o marca..." oninput="filterAll()">
   <button class="filter-btn active" onclick="setFilter('all',this)">Todos</button>
-  <button class="filter-btn" onclick="setFilter('pelotas',this)">🎾 Pelotas</button>
+  <button class="filter-btn" onclick="setFilter('mayoristas',this)">⭐ Mayoristas</button>
   <button class="filter-btn" onclick="setFilter('grip',this)">🎯 Cubre Grip</button>
+  <button class="filter-btn" onclick="setFilter('pelotas',this)">🎾 Pelotas</button>
   <button class="filter-btn" onclick="setFilter('protectores',this)">🛡 Protectores</button>
-  <button class="filter-btn" onclick="setFilter('resinas',this)">🤚 Grip &amp; Resinas</button>
-  <button class="filter-btn" onclick="setFilter('cancha',this)">🕸 Cancha &amp; Más</button>
-  <button class="filter-btn" onclick="setFilter('accesorios',this)">⚙️ Accesorios</button>
+  <button class="filter-btn" onclick="setFilter('gripmas',this)">🤚 Grip</button>
+  <button class="filter-btn" onclick="setFilter('cancha',this)">🕸 Cancha</button>
 </div>
 
 <main>
 
-<!-- ═══ PELOTAS ═══ -->
-<section class="section cat-pelotas" data-cat="pelotas">
+<!-- ═══ MAYORISTAS ═══ -->
+<section class="section cat-mayoristas" data-cat="mayoristas">
   <div class="section-header">
-    <span class="section-icon">🎾</span>
-    <h2 class="section-title">Pelotas</h2>
+    <span class="section-icon">⭐</span>
+    <h2 class="section-title">Mayoristas</h2>
+    <span class="section-badge">Precios exclusivos por volumen</span>
   </div>
   
-  <div class="subsection-label">PENN</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="penn pelota penn tournament pro pspro granel">
-      <div class="card-img-wrap"><img src="imagenes/pspro.jpg" alt="Pelota Penn Tournament Pro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">PENN</div>
-        <div class="product-name">Pelota Penn Tournament Pro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+30 unid.</span><span class="price-value">$2.950</span></div>
-          <div class="price-row m2"><span class="price-label">+50 unid.</span><span class="price-value">$2.770</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.900</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="penn pelota penn tournament pstou granel">
-      <div class="card-img-wrap"><img src="imagenes/pstou.jpg" alt="Pelota Penn Tournament" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">PENN</div>
-        <div class="product-name">Pelota Penn Tournament</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+30 unid.</span><span class="price-value">$2.740</span></div>
-          <div class="price-row m2"><span class="price-label">+50 unid.</span><span class="price-value">$2.580</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.600</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="penn tubo penn padel x 3 pelotas ptpad tubo">
-      <div class="card-img-wrap"><img src="imagenes/ptpad3.jpg" alt="Tubo Penn Padel X 3 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">PENN</div>
-        <div class="product-name">Tubo Penn Padel X 3 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$8.610</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$8.090</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$12.300</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="penn tubo penn padel x 2 pelotas ptpad2 tubo">
-      <div class="card-img-wrap"><img src="imagenes/ptpad2.jpg" alt="Tubo Penn Padel X 2 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">PENN</div>
-        <div class="product-name">Tubo Penn Padel X 2 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$6.380</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$5.990</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.400</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="penn tubo penn premiere x 3 pelotas ptpre tubo">
-      <div class="card-img-wrap"><img src="imagenes/ptpre.jpg" alt="Tubo Penn Premiere X 3 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">PENN</div>
-        <div class="product-name">Tubo Penn Premiere X 3 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$7.240</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$6.800</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$10.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="penn tubo penn tour x 3 pelotas pttou tubo">
-      <div class="card-img-wrap"><img src="imagenes/pttou.jpg" alt="Tubo Penn Tour X 3 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">PENN</div>
-        <div class="product-name">Tubo Penn Tour X 3 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$9.910</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.320</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.000</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">SIUX</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="siux pelota siux neo speed tubo x 3 sipensx3 tubo">
-      <div class="card-img-wrap"><img src="imagenes/SIPENSX3.jpg" alt="Pelota Siux Neo Speed Tubo X 3" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">SIUX</div>
-        <div class="product-name">Pelota Siux Neo Speed Tubo X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.590</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.990</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$16.000</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="siux pelota siux neo tubo x 3 sipenx3 tubo">
-      <div class="card-img-wrap"><img src="imagenes/SIPENX3.jpg" alt="Pelota Siux Neo Tubo X 3" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">SIUX</div>
-        <div class="product-name">Pelota Siux Neo Tubo X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.590</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.990</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$16.000</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">ODEA</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="odea tubo pelota odea baja presion x 3 otbp3 tubo">
-      <div class="card-img-wrap"><img src="imagenes/OTBP3.jpg" alt="Tubo Pelota Odea Baja Presion X 3" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Tubo Pelota Odea Baja Presion X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">—</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$11.300</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odea tubo odea padel x 2 pelotas otx2 tubo">
-      <div class="card-img-wrap"><img src="imagenes/OTX2.jpg" alt="Tubo Odea Padel X 2 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Tubo Odea Padel X 2 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$6.290</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$5.910</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.800</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odea tubo odea padel x 3 pelotas otx3 tubo">
-      <div class="card-img-wrap"><img src="imagenes/OTX3.jpg" alt="Tubo Odea Padel X 3 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Tubo Odea Padel X 3 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$9.490</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$8.920</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.300</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odea tubo odea love padel x 2 pelotas otxp2 tubo">
-      <div class="card-img-wrap"><img src="imagenes/OTXP2.PNG" alt="Tubo Odea Love Padel X 2 Pelotas" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Tubo Odea Love Padel X 2 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$9.100</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$8.550</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$13.700</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">ODPRO</div>
-  <div class="product-grid">
-    <div class="product-card sin-stock" data-search="odpro tubo pelota odpro x 2 odtx2 tubo"><span class="sin-stock-badge">Sin stock</span>
-      <div class="card-img-wrap"><img src="imagenes/ODTX2.jpg" alt="Tubo Pelota Odpro X 2" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODPRO</div>
-        <div class="product-name">Tubo Pelota Odpro X 2</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$5.750</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$5.410</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.100</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="subsection-title">🎾 Pelotas en Tubo</div>
   <div class="subsection-label">BULLPADEL</div>
   <div class="product-grid">
     <div class="product-card sin-stock" data-search="bullpadel tubo pelota bullpadel gold x 3 bptg3 tubo"><span class="sin-stock-badge">Sin stock</span>
@@ -283,11 +146,7 @@
       <div class="card-body">
         <div class="product-brand">BULLPADEL</div>
         <div class="product-name">Tubo Pelota Bullpadel Gold X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$11.280</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$10.560</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$15.400</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$11.280</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$10.560</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$15.400</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="bullpadel tubo pelota bullpadel next x 3 bptn3 tubo">
@@ -295,11 +154,7 @@
       <div class="card-body">
         <div class="product-brand">BULLPADEL</div>
         <div class="product-name">Tubo Pelota Bullpadel Next X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$11.280</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$10.560</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$15.400</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$11.280</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$10.560</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$15.400</span></div></div>
       </div>
     </div>
     <div class="product-card sin-stock" data-search="bullpadel tubo pelota bullpadel premium pro x 3 bptpp3 tubo"><span class="sin-stock-badge">Sin stock</span>
@@ -307,11 +162,7 @@
       <div class="card-body">
         <div class="product-brand">BULLPADEL</div>
         <div class="product-name">Tubo Pelota Bullpadel Premium Pro X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.620</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.940</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.500</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.620</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.940</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.500</span></div></div>
       </div>
     </div>
   </div>
@@ -322,62 +173,131 @@
       <div class="card-body">
         <div class="product-brand">NOX</div>
         <div class="product-name">Tubo Pelotas Nox X3 Pro Titanium</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.840</span></div>
-          <div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$10.180</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$15.200</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.840</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$10.180</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$15.200</span></div></div>
       </div>
     </div>
   </div>
-  <div class="subsection-label">MADMA</div>
+  <div class="subsection-label">ODEA</div>
   <div class="product-grid">
-    <div class="product-card" data-search="madma pelota pickleball madma lenta mpipsl pelota">
-      <div class="card-img-wrap"><img src="imagenes/mpipsl.jpg" alt="Pelota Pickleball Madma Lenta" loading="lazy"></div>
+    <div class="product-card" data-search="odea tubo pelota odea baja presion x 3 otbp3 tubo">
+      <div class="card-img-wrap"><img src="imagenes/OTBP3.jpg" alt="Tubo Pelota Odea Baja Presion X 3" loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">MADMA</div>
-        <div class="product-name">Pelota Pickleball Madma Lenta</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.045</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.400</span></div>
-        </div>
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Tubo Pelota Odea Baja Presion X 3</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">—</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$11.300</span></div></div>
       </div>
     </div>
-    <div class="product-card" data-search="madma pelota pickleball madma rapida mpipsr pelota">
-      <div class="card-img-wrap"><img src="imagenes/mpipsr.jpg" alt="Pelota Pickleball Madma Rapida" loading="lazy"></div>
+    <div class="product-card" data-search="odea tubo odea padel x 2 pelotas otx2 tubo">
+      <div class="card-img-wrap"><img src="imagenes/OTX2.jpg" alt="Tubo Odea Padel X 2 Pelotas" loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">MADMA</div>
-        <div class="product-name">Pelota Pickleball Madma Rapida</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.045</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.400</span></div>
-        </div>
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Tubo Odea Padel X 2 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$6.290</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$5.910</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.800</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea tubo odea padel x 3 pelotas otx3 tubo">
+      <div class="card-img-wrap"><img src="imagenes/OTX3.jpg" alt="Tubo Odea Padel X 3 Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Tubo Odea Padel X 3 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$9.490</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$8.920</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.300</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea tubo odea love padel x 2 pelotas otxp2 tubo">
+      <div class="card-img-wrap"><img src="imagenes/OTXP2.PNG" alt="Tubo Odea Love Padel X 2 Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Tubo Odea Love Padel X 2 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$9.100</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$8.550</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$13.700</span></div></div>
       </div>
     </div>
   </div>
-  <div class="subsection-label">DROP SHOT</div>
+  <div class="subsection-label">ODPRO</div>
   <div class="product-grid">
-    <div class="product-card" data-search="drop shot pelota pickleball dropshot dppx1 pickleball">
-      <div class="card-img-wrap"><img src="imagenes/DPPX1.jpg" alt="Pelota Pickleball Dropshot" loading="lazy"></div>
+    <div class="product-card sin-stock" data-search="odpro tubo pelota odpro x 2 odtx2 tubo"><span class="sin-stock-badge">Sin stock</span>
+      <div class="card-img-wrap"><img src="imagenes/ODTX2.jpg" alt="Tubo Pelota Odpro X 2" loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">DROP SHOT</div>
-        <div class="product-name">Pelota Pickleball Dropshot</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$4.000</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$6.000</span></div>
-        </div>
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Tubo Pelota Odpro X 2</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$5.750</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$5.410</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.100</span></div></div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ═══ CUBRE GRIP ═══ -->
-<section class="section cat-grip" data-cat="grip">
-  <div class="section-header">
-    <span class="section-icon">🎯</span>
-    <h2 class="section-title">Cubre Grip</h2>
+  <div class="subsection-label">PENN</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="penn tubo penn padel x 3 pelotas ptpad tubo">
+      <div class="card-img-wrap"><img src="imagenes/ptpad3.jpg" alt="Tubo Penn Padel X 3 Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Tubo Penn Padel X 3 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$8.610</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$8.090</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$12.300</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="penn tubo penn padel x 2 pelotas ptpad2 tubo">
+      <div class="card-img-wrap"><img src="imagenes/ptpad2.jpg" alt="Tubo Penn Padel X 2 Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Tubo Penn Padel X 2 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$6.380</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$5.990</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.400</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="penn tubo penn premiere x 3 pelotas ptpre tubo">
+      <div class="card-img-wrap"><img src="imagenes/ptpre.jpg" alt="Tubo Penn Premiere X 3 Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Tubo Penn Premiere X 3 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$7.240</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$6.800</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$10.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="penn tubo penn tour x 3 pelotas pttou tubo">
+      <div class="card-img-wrap"><img src="imagenes/pttou.jpg" alt="Tubo Penn Tour X 3 Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Tubo Penn Tour X 3 Pelotas</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$9.910</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.320</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.000</span></div></div>
+      </div>
+    </div>
   </div>
-  
+  <div class="subsection-label">SIUX</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="siux pelota siux neo speed tubo x 3 sipensx3 tubo">
+      <div class="card-img-wrap"><img src="imagenes/SIPENSX3.jpg" alt="Pelota Siux Neo Speed Tubo X 3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">SIUX</div>
+        <div class="product-name">Pelota Siux Neo Speed Tubo X 3</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.590</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.990</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$16.000</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="siux pelota siux neo tubo x 3 sipenx3 tubo">
+      <div class="card-img-wrap"><img src="imagenes/SIPENX3.jpg" alt="Pelota Siux Neo Tubo X 3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">SIUX</div>
+        <div class="product-name">Pelota Siux Neo Tubo X 3</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+6 tubos</span><span class="price-value">$10.590</span></div><div class="price-row m2"><span class="price-label">Caja x24</span><span class="price-value">$9.990</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$16.000</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-title">🎾 Pelotas Sueltas</div>
+  <div class="subsection-label">PENN</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="penn pelota penn tournament pro pspro granel">
+      <div class="card-img-wrap"><img src="imagenes/pspro.jpg" alt="Pelota Penn Tournament Pro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Pelota Penn Tournament Pro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+30 unid.</span><span class="price-value">$2.950</span></div><div class="price-row m2"><span class="price-label">+50 unid.</span><span class="price-value">$2.770</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.900</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="penn pelota penn tournament pstou granel">
+      <div class="card-img-wrap"><img src="imagenes/pstou.jpg" alt="Pelota Penn Tournament" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Pelota Penn Tournament</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">+30 unid.</span><span class="price-value">$2.740</span></div><div class="price-row m2"><span class="price-label">+50 unid.</span><span class="price-value">$2.580</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.600</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-title">🎯 Cubre Grip</div>
   <div class="subsection-label">HUBIS</div>
   <div class="product-grid">
     <div class="product-card" data-search="hubis cubre grip liso hubis hao1 cubre grip">
@@ -385,11 +305,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Cubre Grip Liso Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.100</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$970</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.500</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.100</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$970</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.500</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="hubis cubre grip perforado hubis hao2 cubre grip">
@@ -397,11 +313,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Cubre Grip Perforado Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.200</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.060</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.700</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.200</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.060</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.700</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="hubis cubre grip con relieve hubis hao3 cubre grip">
@@ -409,11 +321,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Cubre Grip Con Relieve Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.570</span></div>
-          <div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.380</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.100</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.570</span></div><div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.380</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.100</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="hubis cubre grip con relieve camuflado hubis hao4 cubre grip">
@@ -421,89 +329,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Cubre Grip Con Relieve Camuflado Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$2.200</span></div>
-          <div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.930</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.900</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">ODEA</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="odea cubre grip odea liso oao1 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/OAO2.jpg" alt="Cubre Grip Odea Liso" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Cubre Grip Odea Liso</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$9.810</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$8.810</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odea cubre grip odea microperforado oao2 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/OAO2.jpg" alt="Cubre Grip Odea Microperforado" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Cubre Grip Odea Microperforado</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$9.410</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$8.270</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.700</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odea curbre grip odea con relieve y perforado oao3 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/OAO3.jpg" alt="Curbre Grip Odea Con Relieve Y Perforado" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Curbre Grip Odea Con Relieve Y Perforado</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$2.170</span></div>
-          <div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.910</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.900</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">ODPRO</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="odpro cubre grip liso odpro odao1 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/ODAO1.jpg" alt="Cubre Grip Liso Odpro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODPRO</div>
-        <div class="product-name">Cubre Grip Liso Odpro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.210</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.070</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.700</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odpro cubre grip perforado odpro odao2 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/ODAO2.jpg" alt="Cubre Grip Perforado Odpro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODPRO</div>
-        <div class="product-name">Cubre Grip Perforado Odpro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.650</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.450</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.200</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odpro curbre grip odpro con relieve y perforado odao3 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/ODAO3.jpg" alt="Curbre Grip Odpro Con Relieve Y Perforado" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODPRO</div>
-        <div class="product-name">Curbre Grip Odpro Con Relieve Y Perforado</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$2.150</span></div>
-          <div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.970</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.000</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$2.200</span></div><div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.930</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.900</span></div></div>
       </div>
     </div>
   </div>
@@ -514,11 +340,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Cubre Grip Madma Liso</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.560</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.370</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.300</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.560</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.370</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.300</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma cubre grip madma microperforado mao2 cubre grip">
@@ -526,11 +348,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Cubre Grip Madma Microperforado</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.780</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.560</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.600</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.780</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.560</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.600</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma cubre grip madma microperforado premium mao3 cubre grip">
@@ -538,11 +356,61 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Cubre Grip Madma Microperforado Premium</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.780</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.560</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.600</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.780</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.560</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.600</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">ODEA</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="odea cubre grip odea liso oao1 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/OAO2.jpg" alt="Cubre Grip Odea Liso" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Cubre Grip Odea Liso</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$9.810</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$8.810</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea cubre grip odea microperforado oao2 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/OAO2.jpg" alt="Cubre Grip Odea Microperforado" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Cubre Grip Odea Microperforado</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$9.410</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$8.270</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.700</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea curbre grip odea con relieve y perforado oao3 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/OAO3.jpg" alt="Curbre Grip Odea Con Relieve Y Perforado" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Curbre Grip Odea Con Relieve Y Perforado</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$2.170</span></div><div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.910</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.900</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">ODPRO</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="odpro cubre grip liso odpro odao1 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/ODAO1.jpg" alt="Cubre Grip Liso Odpro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Cubre Grip Liso Odpro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.210</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.070</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.700</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odpro cubre grip perforado odpro odao2 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/ODAO2.jpg" alt="Cubre Grip Perforado Odpro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Cubre Grip Perforado Odpro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.650</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.450</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.200</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odpro curbre grip odpro con relieve y perforado odao3 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/ODAO3.jpg" alt="Curbre Grip Odpro Con Relieve Y Perforado" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Curbre Grip Odpro Con Relieve Y Perforado</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$2.150</span></div><div class="price-row m2"><span class="price-label">x30</span><span class="price-value">$1.970</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.000</span></div></div>
       </div>
     </div>
   </div>
@@ -553,181 +421,11 @@
       <div class="card-body">
         <div class="product-brand">X-TRUST</div>
         <div class="product-name">Cubre Grip X-Trust Perforado</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.780</span></div>
-          <div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.560</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.200</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x10</span><span class="price-value">$1.780</span></div><div class="price-row m2"><span class="price-label">x60</span><span class="price-value">$1.560</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.200</span></div></div>
       </div>
     </div>
   </div>
-  <div class="subsection-label">MADMA</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="madma blister x 3 cubre grip madma pro liso mao1_3 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/MAO1_3.jpg" alt="Blister X 3 Cubre Grip Madma Pro Liso" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">MADMA</div>
-        <div class="product-name">Blister X 3 Cubre Grip Madma Pro Liso</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$5.533</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.000</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">X-TRUST</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="x-trust cubre grip x-trust liso xao2 cubre grip">
-      <div class="card-img-wrap" style="font-size:2.6rem;color:#444;">📦</div>
-      <div class="card-body">
-        <div class="product-brand">X-TRUST</div>
-        <div class="product-name">Cubre Grip X-Trust Liso</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.560</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.200</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">BULLPADEL</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 adherent dibujo lila baoa3li cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOA3LI.jpg" alt="Cubre Grip Bullpadel X 3 Adherent Dibujo Lila" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Adherent Dibujo Lila</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$16.192</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$23.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort liso amarillo baoc3am cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOA3AM.jpg" alt="Cubre Grip Bullpadel X 3 Comfort Liso Amarillo" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort Liso Amarillo</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort liso blanco baoc3bc cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOA3BC.jpg" alt="Cubre Grip Bullpadel X 3 Comfort Liso Blanco" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort Liso Blanco</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort liso naranja baoc3na cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOA3NA.jpg" alt="Cubre Grip Bullpadel X 3 Comfort Liso Naranja" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort Liso Naranja</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort / absorbent fucsia baocafu cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOCAFU.jpg" alt="Cubre Grip Bullpadel X 3 Comfort / Absorbent Fucsia" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort / Absorbent Fucsia</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort / absorbent negro baocane cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOCANE.jpg" alt="Cubre Grip Bullpadel X 3 Comfort / Absorbent Negro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort / Absorbent Negro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 thin perforado verde baot3ve cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/BAOT3VE.jpg" alt="Cubre Grip Bullpadel X 3 Thin Perforado Verde" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Cubre Grip Bullpadel X 3 Thin Perforado Verde</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">NOX</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="nox cubre grip nox liso noao1 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/NOAO1.jpg" alt="Cubre Grip Nox Liso" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">NOX</div>
-        <div class="product-name">Cubre Grip Nox Liso</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$3.392</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$5.300</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">TOALSON</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="toalson grip taolson ecotech x 1 negro tagene cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/tagene.jpg" alt="Grip Taolson Ecotech X 1 Negro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">TOALSON</div>
-        <div class="product-name">Grip Taolson Ecotech X 1 Negro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$5.235</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$8.500</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="toalson cubre grip toalson asterista blister x 3 taoax3 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/TAOAX3.jpg" alt="Cubre Grip Toalson Asterista Blister X 3" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">TOALSON</div>
-        <div class="product-name">Cubre Grip Toalson Asterista Blister X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$8.482</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$13.100</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="toalson cubre grip toalson ultra blister x 3 taoux3 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/tao3x3.png" alt="Cubre Grip Toalson Ultra Blister X 3" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">TOALSON</div>
-        <div class="product-name">Cubre Grip Toalson Ultra Blister X 3</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$7.924</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$12.400</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PROTECTORES ═══ -->
-<section class="section cat-protectores" data-cat="protectores">
-  <div class="section-header">
-    <span class="section-icon">🛡</span>
-    <h2 class="section-title">Protectores</h2>
-  </div>
-  
+  <div class="subsection-title">🛡 Protectores</div>
   <div class="subsection-label">HUBIS</div>
   <div class="product-grid">
     <div class="product-card" data-search="hubis protector paleta transparente hubis hap1 protectores">
@@ -735,11 +433,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Protector Paleta Transparente Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$2.740</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$2.410</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.600</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$2.740</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$2.410</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.600</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="hubis protector paleta negro carbono hubis hap2 protectores">
@@ -747,11 +441,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Protector Paleta Negro Carbono Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$1.850</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.630</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.500</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$1.850</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.630</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.500</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="hubis protector paleta transparente vainilla hubis hap3 protectores">
@@ -759,11 +449,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Protector Paleta Transparente Vainilla Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$2.740</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$2.410</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.600</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$2.740</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$2.410</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$4.600</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="hubis protector paleta negro carbono vainilla hubis hap4 protectores">
@@ -771,38 +457,7 @@
       <div class="card-body">
         <div class="product-brand">HUBIS</div>
         <div class="product-name">Protector Paleta Negro Carbono Vainilla Hubis</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$1.850</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.630</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.500</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">ODEA</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="odea protector paleta odea transparente vainilla oap1 protectores">
-      <div class="card-img-wrap"><img src="imagenes/OAP1.jpg" alt="Protector Paleta Odea Transparente Vainilla" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Protector Paleta Odea Transparente Vainilla</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$3.980</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$3.500</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$6.200</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="odea protector paleta odea transparente dentado oap2 protectores">
-      <div class="card-img-wrap"><img src="imagenes/OAP2.jpg" alt="Protector Paleta Odea Transparente Dentado" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">ODEA</div>
-        <div class="product-name">Protector Paleta Odea Transparente Dentado</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$4.710</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$4.150</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$7.200</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$1.850</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.630</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.500</span></div></div>
       </div>
     </div>
   </div>
@@ -813,10 +468,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Protector Paleta Madma 3M</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$7.684</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$11.300</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$7.684</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$11.300</span></div></div>
       </div>
     </div>
   </div>
@@ -827,13 +479,276 @@
       <div class="card-body">
         <div class="product-brand">NERON</div>
         <div class="product-name">Protector Paleta Neron Tela Blanco</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$2.210</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.920</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$2.210</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.920</span></div></div>
       </div>
     </div>
   </div>
+  <div class="subsection-label">ODEA</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="odea protector paleta odea transparente vainilla oap1 protectores">
+      <div class="card-img-wrap"><img src="imagenes/OAP1.jpg" alt="Protector Paleta Odea Transparente Vainilla" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Protector Paleta Odea Transparente Vainilla</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$3.980</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$3.500</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$6.200</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea protector paleta odea transparente dentado oap2 protectores">
+      <div class="card-img-wrap"><img src="imagenes/OAP2.jpg" alt="Protector Paleta Odea Transparente Dentado" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Protector Paleta Odea Transparente Dentado</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x5</span><span class="price-value">$4.710</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$4.150</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$7.200</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-title">🤚 Antivibrador / Grip</div>
+  <div class="subsection-label">HUBIS</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="hubis antivibrador silicona hubis blanco hah1b grip">
+      <div class="card-img-wrap"><img src="imagenes/HAH1B.jpg" alt="Antivibrador Silicona Hubis Blanco" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBIS</div>
+        <div class="product-name">Antivibrador Silicona Hubis Blanco</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$6.603</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.900</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis antivibrador silicona hubis negro hah1n grip">
+      <div class="card-img-wrap"><img src="imagenes/HAH1N.jpg" alt="Antivibrador Silicona Hubis Negro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBIS</div>
+        <div class="product-name">Antivibrador Silicona Hubis Negro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$6.603</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.900</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-title">🤚 Resinas &amp; Antitranspirante</div>
+  <div class="subsection-label">NERON</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="neron polvo antistranspirante x 30 gramos nam1 grips">
+      <div class="card-img-wrap"><img src="imagenes/NAM1.jpg" alt="Polvo Antistranspirante X 30 Gramos" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">NERON</div>
+        <div class="product-name">Polvo Antistranspirante X 30 Gramos</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x3</span><span class="price-value">$1.630</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.150</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.700</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="neron resina natural para manos x 60 ml nar1 grips">
+      <div class="card-img-wrap"><img src="imagenes/NAR1.jpg" alt="Resina Natural Para Manos X 60 Ml" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">NERON</div>
+        <div class="product-name">Resina Natural Para Manos X 60 Ml</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">x3</span><span class="price-value">$2.920</span></div><div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$2.490</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$6.700</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-title">⚙️ Anillos</div>
+  <div class="subsection-label">HUBIS</div>
+  <div class="product-grid">
+    <div class="product-card sin-stock" data-search="hubis anillo silicona hubis blanco haa1b anillo"><span class="sin-stock-badge">Sin stock</span>
+      <div class="card-img-wrap"><img src="imagenes/HAA1B.jpg" alt="Anillo Silicona Hubis Blanco" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBIS</div>
+        <div class="product-name">Anillo Silicona Hubis Blanco</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.467</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.000</span></div></div>
+      </div>
+    </div>
+    <div class="product-card sin-stock" data-search="hubis anillo silicona hubis negro haa1n anillo"><span class="sin-stock-badge">Sin stock</span>
+      <div class="card-img-wrap"><img src="imagenes/HAA1N.jpg" alt="Anillo Silicona Hubis Negro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBIS</div>
+        <div class="product-name">Anillo Silicona Hubis Negro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.467</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.000</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CUBRE GRIP — MULTIMARCA ═══ -->
+<section class="section cat-grip" data-cat="grip">
+  <div class="section-header">
+    <span class="section-icon">🎯</span>
+    <h2 class="section-title">Cubre Grip — Multimarca</h2>
+  </div>
+  
+  <div class="subsection-label">2WIN</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="2win 2 win: aerosol con resina para mano 2win1 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/2WIN1.jpg" alt="2 Win: Aerosol Con Resina Para Mano" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">2WIN</div>
+        <div class="product-name">2 Win: Aerosol Con Resina Para Mano</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$11.681</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$21.100</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">BULLPADEL</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 adherent dibujo lila baoa3li cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOA3LI.jpg" alt="Cubre Grip Bullpadel X 3 Adherent Dibujo Lila" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Adherent Dibujo Lila</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$16.192</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$23.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort liso amarillo baoc3am cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOA3AM.jpg" alt="Cubre Grip Bullpadel X 3 Comfort Liso Amarillo" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort Liso Amarillo</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort liso blanco baoc3bc cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOA3BC.jpg" alt="Cubre Grip Bullpadel X 3 Comfort Liso Blanco" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort Liso Blanco</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort liso naranja baoc3na cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOA3NA.jpg" alt="Cubre Grip Bullpadel X 3 Comfort Liso Naranja" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort Liso Naranja</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort / absorbent fucsia baocafu cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOCAFU.jpg" alt="Cubre Grip Bullpadel X 3 Comfort / Absorbent Fucsia" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort / Absorbent Fucsia</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 comfort / absorbent negro baocane cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOCANE.jpg" alt="Cubre Grip Bullpadel X 3 Comfort / Absorbent Negro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Comfort / Absorbent Negro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel cubre grip bullpadel x 3 thin perforado verde baot3ve cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/BAOT3VE.jpg" alt="Cubre Grip Bullpadel X 3 Thin Perforado Verde" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Cubre Grip Bullpadel X 3 Thin Perforado Verde</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.313</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$19.500</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">MADMA</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="madma blister x 3 cubre grip madma pro liso mao1_3 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/MAO1_3.jpg" alt="Blister X 3 Cubre Grip Madma Pro Liso" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Blister X 3 Cubre Grip Madma Pro Liso</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$5.533</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.000</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">NOX</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="nox cubre grip nox liso noao1 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/NOAO1.jpg" alt="Cubre Grip Nox Liso" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">NOX</div>
+        <div class="product-name">Cubre Grip Nox Liso</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$3.392</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$5.300</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">TOALSON</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="toalson grip taolson ecotech x 1 negro tagene cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/tagene.jpg" alt="Grip Taolson Ecotech X 1 Negro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">TOALSON</div>
+        <div class="product-name">Grip Taolson Ecotech X 1 Negro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$5.235</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$8.500</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="toalson cubre grip toalson asterista blister x 3 taoax3 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/TAOAX3.jpg" alt="Cubre Grip Toalson Asterista Blister X 3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">TOALSON</div>
+        <div class="product-name">Cubre Grip Toalson Asterista Blister X 3</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$8.482</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$13.100</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="toalson cubre grip toalson ultra blister x 3 taoux3 cubre grip">
+      <div class="card-img-wrap"><img src="imagenes/tao3x3.png" alt="Cubre Grip Toalson Ultra Blister X 3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">TOALSON</div>
+        <div class="product-name">Cubre Grip Toalson Ultra Blister X 3</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$7.924</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$12.400</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">X-TRUST</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="x-trust cubre grip x-trust liso xao2 cubre grip">
+      <div class="card-img-wrap" style="font-size:2.6rem;color:#444;">📦</div>
+      <div class="card-body">
+        <div class="product-brand">X-TRUST</div>
+        <div class="product-name">Cubre Grip X-Trust Liso</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.560</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.200</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PELOTAS — MULTIMARCA ═══ -->
+<section class="section cat-pelotas" data-cat="pelotas">
+  <div class="section-header">
+    <span class="section-icon">🎾</span>
+    <h2 class="section-title">Pelotas — Multimarca</h2>
+  </div>
+  
+  <div class="subsection-label">DROP SHOT</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="drop shot pelota pickleball dropshot dppx1 pickleball">
+      <div class="card-img-wrap"><img src="imagenes/DPPX1.jpg" alt="Pelota Pickleball Dropshot" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">DROP SHOT</div>
+        <div class="product-name">Pelota Pickleball Dropshot</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$4.000</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$6.000</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="subsection-label">MADMA</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="madma pelota pickleball madma lenta mpipsl pelota">
+      <div class="card-img-wrap"><img src="imagenes/mpipsl.jpg" alt="Pelota Pickleball Madma Lenta" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Pelota Pickleball Madma Lenta</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.045</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.400</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="madma pelota pickleball madma rapida mpipsr pelota">
+      <div class="card-img-wrap"><img src="imagenes/mpipsr.jpg" alt="Pelota Pickleball Madma Rapida" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Pelota Pickleball Madma Rapida</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.045</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$2.400</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROTECTORES — MULTIMARCA ═══ -->
+<section class="section cat-protectores" data-cat="protectores">
+  <div class="section-header">
+    <span class="section-icon">🛡</span>
+    <h2 class="section-title">Protectores — Multimarca</h2>
+  </div>
+  
   <div class="subsection-label">BULLPADEL</div>
   <div class="product-grid">
     <div class="product-card" data-search="bullpadel protector bullpadel frame pro bap3 protectores">
@@ -841,10 +756,7 @@
       <div class="card-body">
         <div class="product-brand">BULLPADEL</div>
         <div class="product-name">Protector Bullpadel Frame Pro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$12.953</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$18.400</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$12.953</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$18.400</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="bullpadel protector bullpadel frame  bap4 protectores">
@@ -852,10 +764,7 @@
       <div class="card-body">
         <div class="product-brand">BULLPADEL</div>
         <div class="product-name">Protector Bullpadel Frame </div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$6.477</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.700</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$6.477</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.700</span></div></div>
       </div>
     </div>
   </div>
@@ -866,71 +775,59 @@
       <div class="card-body">
         <div class="product-brand">ROYAL PADEL</div>
         <div class="product-name">Protector Paleta Royal</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$10.005</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.400</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$10.005</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$14.400</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ GRIP &AMP; RESINAS ═══ -->
-<section class="section cat-resinas" data-cat="resinas">
+<!-- ═══ ANTIVIBRADORES &AMP; GRIP — MULTIMARCA ═══ -->
+<section class="section cat-gripmas" data-cat="gripmas">
   <div class="section-header">
     <span class="section-icon">🤚</span>
-    <h2 class="section-title">Grip &amp; Resinas</h2>
+    <h2 class="section-title">Antivibradores &amp; Grip — Multimarca</h2>
   </div>
   
-  <div class="subsection-label">NERON</div>
+  <div class="subsection-label">BULLPADEL</div>
   <div class="product-grid">
-    <div class="product-card" data-search="neron polvo antistranspirante x 30 gramos nam1 grips">
-      <div class="card-img-wrap"><img src="imagenes/NAM1.jpg" alt="Polvo Antistranspirante X 30 Gramos" loading="lazy"></div>
+    <div class="product-card" data-search="bullpadel antivibrador bullpadel ease vibe box negro baevbam antivibrador">
+      <div class="card-img-wrap"><img src="imagenes/BAEVBAM.jpg" alt="Antivibrador Bullpadel Ease Vibe Box Negro" loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">NERON</div>
-        <div class="product-name">Polvo Antistranspirante X 30 Gramos</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x3</span><span class="price-value">$1.630</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$1.150</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.700</span></div>
-        </div>
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Antivibrador Bullpadel Ease Vibe Box Negro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$25.906</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$37.000</span></div></div>
       </div>
     </div>
-    <div class="product-card" data-search="neron resina natural para manos x 60 ml nar1 grips">
-      <div class="card-img-wrap"><img src="imagenes/NAR1.jpg" alt="Resina Natural Para Manos X 60 Ml" loading="lazy"></div>
+    <div class="product-card" data-search="bullpadel antivibrador bullpadel ease vibe box celeste baevbce antivibrador">
+      <div class="card-img-wrap"><img src="imagenes/BAEVBCE.jpg" alt="Antivibrador Bullpadel Ease Vibe Box Celeste" loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">NERON</div>
-        <div class="product-name">Resina Natural Para Manos X 60 Ml</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">x3</span><span class="price-value">$2.920</span></div>
-          <div class="price-row m2"><span class="price-label">x10</span><span class="price-value">$2.490</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$6.700</span></div>
-        </div>
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Antivibrador Bullpadel Ease Vibe Box Celeste</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$25.906</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$37.000</span></div></div>
       </div>
     </div>
-  </div>
-  <div class="subsection-label">HUBIS</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="hubis antivibrador silicona hubis blanco hah1b grip">
-      <div class="card-img-wrap"><img src="imagenes/HAH1B.jpg" alt="Antivibrador Silicona Hubis Blanco" loading="lazy"></div>
+    <div class="product-card" data-search="bullpadel antivibrador bullpadel ease vibe box negro baevbne antivibrador">
+      <div class="card-img-wrap"><img src="imagenes/BAEVBNE.jpg" alt="Antivibrador Bullpadel Ease Vibe Box Negro" loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">HUBIS</div>
-        <div class="product-name">Antivibrador Silicona Hubis Blanco</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$6.603</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.900</span></div>
-        </div>
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Antivibrador Bullpadel Ease Vibe Box Negro</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$25.906</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$37.000</span></div></div>
       </div>
     </div>
-    <div class="product-card" data-search="hubis antivibrador silicona hubis negro hah1n grip">
-      <div class="card-img-wrap"><img src="imagenes/HAH1N.jpg" alt="Antivibrador Silicona Hubis Negro" loading="lazy"></div>
+    <div class="product-card" data-search="bullpadel grip custom bullpadel  bagc1 grip">
+      <div class="card-img-wrap"><img src="imagenes/BAGC1.jpg" alt="Grip Custom Bullpadel " loading="lazy"></div>
       <div class="card-body">
-        <div class="product-brand">HUBIS</div>
-        <div class="product-name">Antivibrador Silicona Hubis Negro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$6.603</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$9.900</span></div>
-        </div>
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Grip Custom Bullpadel </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$18.830</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$27.200</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="bullpadel hesacore grip bullpadel blanco bah1 grip">
+      <div class="card-img-wrap"><img src="imagenes/BAH1.jpg" alt="Hesacore Grip Bullpadel Blanco" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Hesacore Grip Bullpadel Blanco</div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$35.621</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$50.500</span></div></div>
       </div>
     </div>
   </div>
@@ -941,59 +838,17 @@
       <div class="card-body">
         <div class="product-brand">ODEA</div>
         <div class="product-name">Hesacore Grip Odea</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.443</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$20.200</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">BULLPADEL</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="bullpadel grip custom bullpadel  bagc1 grip">
-      <div class="card-img-wrap"><img src="imagenes/BAGC1.jpg" alt="Grip Custom Bullpadel " loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Grip Custom Bullpadel </div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$18.830</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$27.200</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel hesacore grip bullpadel blanco bah1 grip">
-      <div class="card-img-wrap"><img src="imagenes/BAH1.jpg" alt="Hesacore Grip Bullpadel Blanco" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Hesacore Grip Bullpadel Blanco</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$35.621</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$50.500</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">2WIN</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="2win 2 win: aerosol con resina para mano 2win1 cubre grip">
-      <div class="card-img-wrap"><img src="imagenes/2WIN1.jpg" alt="2 Win: Aerosol Con Resina Para Mano" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">2WIN</div>
-        <div class="product-name">2 Win: Aerosol Con Resina Para Mano</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$11.681</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$21.100</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$13.443</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$20.200</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CANCHA &AMP; ACCESORIOS ═══ -->
+<!-- ═══ CANCHA &AMP; ENTRENAMIENTO ═══ -->
 <section class="section cat-cancha" data-cat="cancha">
   <div class="section-header">
     <span class="section-icon">🕸</span>
-    <h2 class="section-title">Cancha &amp; Accesorios</h2>
+    <h2 class="section-title">Cancha &amp; Entrenamiento</h2>
   </div>
   
   <div class="subsection-label">MADMA</div>
@@ -1003,10 +858,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Canasto Madma X 70 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$53.716</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$73.200</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$53.716</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$73.200</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma canasto madma x 95 pelotas mac1x95 cancha">
@@ -1014,10 +866,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Canasto Madma X 95 Pelotas</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$69.427</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$94.300</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$69.427</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$94.300</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma red padel/tenis madma pn5 (hilos de 2,5 mm) mared1 cancha">
@@ -1025,10 +874,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Red Padel/Tenis Madma Pn5 (Hilos De 2,5 Mm)</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$188.992</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$241.000</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$188.992</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$241.000</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma red padel/tenis madma pn-5d (hilos de 3,5 mm) mared2 cancha">
@@ -1036,10 +882,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Red Padel/Tenis Madma Pn-5D (Hilos De 3,5 Mm)</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$242.220</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$309.000</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$242.220</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$309.000</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma red tenis tn-5 (hilos de 2,5 mm) mared3 cancha">
@@ -1047,10 +890,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Red Tenis Tn-5 (Hilos De 2,5 Mm)</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$201.374</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$257.000</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$201.374</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$257.000</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="madma red pickleball profesional madma mared4 cancha">
@@ -1058,10 +898,7 @@
       <div class="card-body">
         <div class="product-brand">MADMA</div>
         <div class="product-name">Red Pickleball Profesional Madma</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$157.101</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$201.000</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$157.101</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$201.000</span></div></div>
       </div>
     </div>
   </div>
@@ -1072,10 +909,7 @@
       <div class="card-body">
         <div class="product-brand">ODEA</div>
         <div class="product-name">Presurizador De Pelotas (X3)</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$30.300</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$44.200</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$30.300</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$44.200</span></div></div>
       </div>
     </div>
     <div class="product-card" data-search="odea tubo recoge 15 pelotas odea oat1 cancha">
@@ -1083,10 +917,7 @@
       <div class="card-body">
         <div class="product-brand">ODEA</div>
         <div class="product-name">Tubo Recoge 15 Pelotas Odea</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$29.400</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$43.200</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$29.400</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$43.200</span></div></div>
       </div>
     </div>
   </div>
@@ -1099,67 +930,6 @@
     <h2 class="section-title">Accesorios</h2>
   </div>
   
-  <div class="subsection-label">HUBIS</div>
-  <div class="product-grid">
-    <div class="product-card sin-stock" data-search="hubis anillo silicona hubis blanco haa1b anillo"><span class="sin-stock-badge">Sin stock</span>
-      <div class="card-img-wrap"><img src="imagenes/HAA1B.jpg" alt="Anillo Silicona Hubis Blanco" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">HUBIS</div>
-        <div class="product-name">Anillo Silicona Hubis Blanco</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.467</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.000</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card sin-stock" data-search="hubis anillo silicona hubis negro haa1n anillo"><span class="sin-stock-badge">Sin stock</span>
-      <div class="card-img-wrap"><img src="imagenes/HAA1N.jpg" alt="Anillo Silicona Hubis Negro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">HUBIS</div>
-        <div class="product-name">Anillo Silicona Hubis Negro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$1.467</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$3.000</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subsection-label">BULLPADEL</div>
-  <div class="product-grid">
-    <div class="product-card" data-search="bullpadel antivibrador bullpadel ease vibe box negro baevbam antivibrador">
-      <div class="card-img-wrap"><img src="imagenes/BAEVBAM.jpg" alt="Antivibrador Bullpadel Ease Vibe Box Negro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Antivibrador Bullpadel Ease Vibe Box Negro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$25.906</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$37.000</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel antivibrador bullpadel ease vibe box celeste baevbce antivibrador">
-      <div class="card-img-wrap"><img src="imagenes/BAEVBCE.jpg" alt="Antivibrador Bullpadel Ease Vibe Box Celeste" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Antivibrador Bullpadel Ease Vibe Box Celeste</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$25.906</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$37.000</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" data-search="bullpadel antivibrador bullpadel ease vibe box negro baevbne antivibrador">
-      <div class="card-img-wrap"><img src="imagenes/BAEVBNE.jpg" alt="Antivibrador Bullpadel Ease Vibe Box Negro" loading="lazy"></div>
-      <div class="card-body">
-        <div class="product-brand">BULLPADEL</div>
-        <div class="product-name">Antivibrador Bullpadel Ease Vibe Box Negro</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$25.906</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$37.000</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="subsection-label">ODEA</div>
   <div class="product-grid">
     <div class="product-card" data-search="odea llavero pelota oall1 llaveros">
@@ -1167,10 +937,7 @@
       <div class="card-body">
         <div class="product-brand">ODEA</div>
         <div class="product-name">Llavero Pelota</div>
-        <div class="prices">
-          <div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$5.151</span></div>
-          <div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$8.400</span></div>
-        </div>
+        <div class="prices"><div class="price-row m1"><span class="price-label">Precio</span><span class="price-value">$5.151</span></div><div class="price-row pvp"><span class="price-label">P.V.P. web</span><span class="price-value">$8.400</span></div></div>
       </div>
     </div>
   </div>
@@ -1183,7 +950,8 @@
 </main>
 
 <footer>
-  <strong>NERÓN+</strong> &nbsp;·&nbsp; Distribuidor oficial de accesorios de pádel &nbsp;·&nbsp; Junio 2026 &nbsp;·&nbsp; Todos los precios incluyen IVA &nbsp;·&nbsp; <a href="https://www.neron.com.ar" style="color:var(--yellow);text-decoration:none;">www.neron.com.ar</a>
+  <strong>NERÓN+</strong> &nbsp;·&nbsp; Distribuidor oficial &nbsp;·&nbsp; Junio 2026 &nbsp;·&nbsp; Precios con IVA &nbsp;·&nbsp;
+  <a href="https://www.neron.com.ar" style="color:var(--yellow);text-decoration:none;">www.neron.com.ar</a>
 </footer>
 
 <script>
@@ -1197,26 +965,24 @@
   function filterAll(){
     const query=document.getElementById('searchInput').value.toLowerCase().trim();
     const sections=document.querySelectorAll('.section');
-    let totalVisible=0;
+    let total=0;
     sections.forEach(sec=>{
-      const secCat=sec.getAttribute('data-cat');
-      const catMatch=activeFilter==='all'||activeFilter===secCat;
-      if(!catMatch){sec.classList.add('hidden');return;}
+      const match=activeFilter==='all'||activeFilter===sec.dataset.cat;
+      if(!match){sec.classList.add('hidden');return;}
       sec.classList.remove('hidden');
-      const cards=sec.querySelectorAll('.product-card');
       let vis=0;
-      cards.forEach(card=>{
-        const text=(card.getAttribute('data-search')||'')+' '+card.innerText.toLowerCase();
-        const show=!query||text.includes(query);
-        card.classList.toggle('hidden',!show);
+      sec.querySelectorAll('.product-card').forEach(c=>{
+        const t=(c.dataset.search||'')+' '+c.innerText.toLowerCase();
+        const show=!query||t.includes(query);
+        c.classList.toggle('hidden',!show);
         if(show)vis++;
       });
-      totalVisible+=vis;
+      total+=vis;
       if(query&&vis===0)sec.classList.add('hidden');
     });
-    const empty=document.getElementById('emptyState');
+    const el=document.getElementById('emptyState');
     document.getElementById('emptyTerm').textContent=query;
-    empty.classList.toggle('visible',totalVisible===0&&query.length>0);
+    el.classList.toggle('visible',total===0&&query.length>0);
   }
 </script>
 </body>
