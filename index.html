@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nerón+ | Precios Mayoristas — Mayo 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  :root {
+    --yellow: #F5C800;
+    --red: #e63946;
+    --dark: #121212;
+    --darker: #0a0a0a;
+    --card: #1c1c1c;
+    --card2: #242424;
+    --border: rgba(255,255,255,0.08);
+    --text: #f0f0f0;
+    --muted: #888;
+    --green: #2dc653;
+    --blue: #4ea8de;
+    --orange: #f4a261;
+    --purple: #b388ff;
+    --radius: 14px;
+    --img-h: 140px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--darker); color: var(--text); min-height: 100vh; }
+
+  /* ── HEADER ── */
+  .header {
+    background: #111;
+    border-bottom: 2px solid var(--yellow);
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .header-left { display: flex; align-items: center; gap: 20px; }
+  .logo-img { height: 52px; }
+  .header-info { font-size: 0.76rem; color: var(--muted); line-height: 1.8; }
+  .header-info strong { color: #ddd; }
+  .header-right { text-align: right; }
+  .mes-badge { font-size: 2.6rem; font-weight: 900; color: var(--yellow); letter-spacing: 1px; line-height: 1; }
+  .iva-note { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    background: #161616;
+    padding: 14px 36px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+  .search-box {
+    flex: 1; min-width: 200px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 14px; color: var(--text); font-size: 0.88rem; font-family: 'Inter', sans-serif; outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus { border-color: var(--yellow); }
+  .search-box::placeholder { color: var(--muted); }
+  .filter-btn {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 14px; color: var(--muted); font-size: 0.8rem; font-family: 'Inter', sans-serif;
+    cursor: pointer; transition: all 0.18s; white-space: nowrap;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--yellow); color: #000; border-color: var(--yellow); font-weight: 700; }
+
+  /* ── MAIN ── */
+  main { padding: 28px 36px 48px; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 48px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section-title { font-size: 1.35rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+  .section-icon { font-size: 1.3rem; }
+  .cat-pelotas .section-title { color: var(--yellow); }
+  .cat-grip .section-title { color: var(--blue); }
+  .cat-redes .section-title { color: var(--green); }
+  .cat-protectores .section-title { color: var(--orange); }
+
+  /* ── GRID ── */
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+
+  /* ── CARD ── */
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.15); }
+
+  .card-img-wrap {
+    width: 100%; height: var(--img-h); background: #1a1a1a;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    flex-shrink: 0;
+  }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 8px; transition: transform 0.2s; }
+  .product-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+  .card-body { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+  .product-brand { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 3px; }
+  .product-name { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 12px; line-height: 1.3; flex: 1; }
+
+  .prices { display: flex; flex-direction: column; gap: 4px; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .price-row:last-child { border-bottom: none; }
+  .price-label { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+  .price-value { font-size: 0.9rem; font-weight: 700; }
+
+  /* Category accent colors */
+  .cat-pelotas .price-value { color: var(--yellow); }
+  .cat-grip .price-value { color: var(--blue); }
+  .cat-redes .price-value { color: var(--green); }
+  .cat-protectores .price-value { color: var(--orange); }
+
+  .price-big { font-size: 1.4rem !important; }
+
+  /* Subsection */
+  .subsection-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); margin: 20px 0 10px; padding-left: 2px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .subsection-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Empty */
+  .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); display: none; }
+  .empty-state.visible { display: block; }
+  .empty-state .emoji { font-size: 2.5rem; margin-bottom: 12px; }
+
+  /* OUT OF STOCK */
+  .product-card.sin-stock { opacity: 0.45; filter: grayscale(80%); }
+  .product-card.sin-stock:hover { transform: none; box-shadow: none; }
+  .sin-stock-badge {
+    position: absolute; top: 8px; right: 8px;
+    background: #555; color: #fff;
+    font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; padding: 3px 8px; border-radius: 4px;
+    z-index: 2;
+  }
+
+  /* Hidden */
+  .hidden { display: none !important; }
+
+  /* Footer */
+  footer { background: #111; border-top: 1px solid var(--border); padding: 18px 36px; text-align: center; font-size: 0.73rem; color: var(--muted); }
+  footer strong { color: var(--yellow); }
+
+  @media (max-width: 600px) {
+    .header, main, .toolbar { padding-left: 14px; padding-right: 14px; }
+    .mes-badge { font-size: 2rem; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <img class="logo-img" src="https://acdn-us.mitiendanube.com/stores/001/323/888/themes/common/logo-1126720646-1685376987-2625653cf3be5547dcd084ea83f236e71685376988-480-0.webp" alt="Nerón+">
+    <div class="header-info">
+      <strong>Distribuidor oficial:</strong> PENN · ODEA · BULLPADEL · MADMA · VARLION · SIUX · NOX · HUBIS · ROYAL PADEL<br>
+      📞 3853034521 &nbsp;·&nbsp; 📍 Av. Belgrano Norte 1085, local 3 · Santiago del Estero
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="mes-badge">MAYO 2026</div>
+    <div class="iva-note">✓ Todos los precios incluyen IVA &nbsp;·&nbsp; Lista Mayorista</div>
+  </div>
+</header>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <input class="search-box" type="text" id="searchInput" placeholder="🔍  Buscar producto o marca..." oninput="filterAll()">
+  <button class="filter-btn active" onclick="setFilter('all',this)">Todos</button>
+  <button class="filter-btn" onclick="setFilter('pelotas',this)">🎾 Pelotas</button>
+  <button class="filter-btn" onclick="setFilter('grip',this)">🎯 Cubre Grip</button>
+  <button class="filter-btn" onclick="setFilter('redes',this)">🕸 Redes &amp; Más</button>
+  <button class="filter-btn" onclick="setFilter('protectores',this)">🛡 Protectores</button>
+</div>
+
+<main>
+
+<!-- ═══════════ PELOTAS ═══════════ -->
+<section class="section cat-pelotas" data-cat="pelotas">
+  <div class="section-header">
+    <span class="section-icon">🎾</span>
+    <h2 class="section-title">Pelotas</h2>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card" data-search="penn padel x3 tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/ptpad-5f9c2e3e7a840ad3b717654615782354-480-0.webp" alt="Penn Padel X3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Padel X 3</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$8.090</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$7.630</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="penn tour tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/pttou_1-ec94f824714f9e60a717654616340077-480-0.webp" alt="Penn Tour" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Tour</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$9.320</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$8.790</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="penn tournament pro pelotas suelta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/pro1-3f73b4ab8f4ed93dcf16642249580427-480-0.webp" alt="Penn Tournament Pro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Tournament Pro</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+30 pelotas (u.)</span><span class="price-value">$2.770</span></div>
+          <div class="price-row"><span class="price-label">+50 pelotas (u.)</span><span class="price-value">$2.610</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="penn padel x2 tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/ptpad2_1-42a9e81fa3dc3f8f5b17126183627969-480-0.webp" alt="Penn Padel X2" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Padel X 2</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$5.990</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$5.650</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="penn premier premiere x3 tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/ptpad-5f9c2e3e7a840ad3b717654615782354-480-0.webp" alt="Penn Premier X3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">PENN</div>
+        <div class="product-name">Premier X 3</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$6.800</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$6.420</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="siux neo x3 tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/neo-speed-photoroom-b547acb844b430dba717558737188616-480-0.webp" alt="Siux Neo X3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">SIUX</div>
+        <div class="product-name">Neo X 3</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$10.590</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$9.990</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card sin-stock" data-search="nox titanium x3 tubo pelotas"><span class="sin-stock-badge">Sin stock</span>
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/noptx3-84db3d33b98180c05a17322895444562-480-0.webp" alt="NOX Titanium PRO" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">NOX</div>
+        <div class="product-name">Titanium</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$10.180</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$9.600</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="odea padel x2 tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/otx2_11-cbd687ed188dcfe30316464097792572-480-0.webp" alt="Odea Padel X2" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Padel X 2</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$5.910</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value price-big">$5.580</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card sin-stock" data-search="odpro odea padel x2 tubo pelotas"><span class="sin-stock-badge">Sin stock</span>
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/20250716_152023335_ios-62d94cdaf8b9ca0bb617526808075333-480-0.webp" alt="ODPro Padel X2" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Padel X 2</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$4.910</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value price-big">$4.630</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="odea love x2 tubo pelotas rosas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/img_1781-ff7f04326355ba074217573721021478-480-0.webp" alt="Odea Love X2" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Love X 2</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$8.550</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$8.070</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="odea padel x3 tubo pelotas">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/odea_41-74d03da17c69d35e6816441953472619-480-0.webp" alt="Odea Padel X3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Padel X 3</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$8.920</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$8.420</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-search="bullpadel next x3 tubo pelotas fip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/next_1-3ab06d1a13ecce1c2217108911013540-480-0.webp" alt="Bullpadel Next X3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Next X 3</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$11.170</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$10.500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card sin-stock" data-search="bullpadel pro x3 tubo pelotas premium"><span class="sin-stock-badge">Sin stock</span>
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/bptpp3_1-b42f7460c5389c0ff017349064082236-480-0.webp" alt="Bullpadel Pro X3" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">BULLPADEL</div>
+        <div class="product-name">Pro X 3</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">+6 tubos</span><span class="price-value">$10.510</span></div>
+          <div class="price-row"><span class="price-label">Caja x24</span><span class="price-value">$9.880</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ CUBRE GRIP ═══════════ -->
+<section class="section cat-grip" data-cat="grip">
+  <div class="section-header">
+    <span class="section-icon">🎯</span>
+    <h2 class="section-title">Cubre Grip</h2>
+  </div>
+
+  <div class="subsection-label">ODEA</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="odea lisos cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/oao2_na-3391e25cf5e0ab371617264090407149-480-0.webp" alt="Odea Lisos" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Lisos</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.140</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$990</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea microperforados cubre grip perforado">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/oao2_221-5d2af026b3db547b6816828989237934-480-0.webp" alt="Odea Microperforados" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Microperforados</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.320</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.150</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea texturados con relieve cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/oao3_amarillo-c71dd78ed9ac6138fb17432666127234-480-0.webp" alt="Odea Con Relieve" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Con Relieve</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.090</span></div>
+          <div class="price-row"><span class="price-label">x30</span><span class="price-value">$1.910</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">ODPRO</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="odpro lisos cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/odao1_1-a1c191cd15e843cfe717749175695603-480-0.webp" alt="ODPro Lisos" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Lisos</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.110</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.030</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odpro microperforados cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/odao2_1-973f7b11dbaed7065117749164432543-480-0.webp" alt="ODPro Microperforados" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Microperforados</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.510</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.400</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odpro texturados con relieve cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/odao3_bc1-1744907f43b74caed917708243815424-480-0.webp" alt="ODPro Con Relieve" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Con Relieve</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.150</span></div>
+          <div class="price-row"><span class="price-label">x30</span><span class="price-value">$1.910</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">HUBis</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="hubis lisos cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/oao1_0-b944f8f3edb19e935317264289706900-480-0.webp" alt="Hubis Lisos" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Lisos</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.180</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.000</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis microperforados cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/oao2_0-2a81a514f16d4d2a6717264299289302-480-0.webp" alt="Hubis Microperforados" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Microperforados</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.290</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.100</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis texturados con relieve cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/hao3_azul-634e79d69c32e01c9017264320886556-480-0.webp" alt="Hubis Con Relieve" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Con Relieve</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.470</span></div>
+          <div class="price-row"><span class="price-label">x30</span><span class="price-value">$1.380</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis texturados camuflados con relieve cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/hao4_abcjpg-bde3fb93bdbb30d10f17264332030954-480-0.webp" alt="Hubis Con Relieve Camuflado" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Con Relieve Camuflado</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.050</span></div>
+          <div class="price-row"><span class="price-label">x30</span><span class="price-value">$1.930</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">MADMA · X-TRUST · TOALSON</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="madma lisos cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/madmablanco-embellecedor-de-producto-d39b09b28774ec685d17749192244527-480-0.webp" alt="Madma Lisos" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Lisos</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.500</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.370</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="madma microperforados cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/mao2_11-b6d86987649c5f12dd16828861573092-480-0.webp" alt="Madma Microperforados" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Microperforados</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.710</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.560</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="x-trust lisos cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/naranja2-db4cb052259152127017550399002964-480-0.webp" alt="X-Trust Lisos" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">X-TRUST</div>
+        <div class="product-name">Lisos</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.780</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.540</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="x-trust microperforados cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/verde-dc2057176989e7fe3f17264091171776-480-0.webp" alt="X-Trust Microperforados" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">X-TRUST</div>
+        <div class="product-name">Microperforados</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.850</span></div>
+          <div class="price-row"><span class="price-label">x60</span><span class="price-value">$1.580</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="toalson ultra pack cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/tao3x3_az1-480a52e5b2afaa75a916827776412239-480-0.webp" alt="Toalson Ultra" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">TOALSON</div>
+        <div class="product-name">Pack x3 Cubre Grip Ultra</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$7.924</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="toalson asterista pack cubre grip">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/taa3x3_1-f9c709db9933df5bad17030010012040-480-0.webp" alt="Toalson Asterista" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">TOALSON</div>
+        <div class="product-name">Pack x3 Cubre Grip Asterista</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$8.482</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ REDES, CANASTOS, RESINAS ═══════════ -->
+<section class="section cat-redes" data-cat="redes">
+  <div class="section-header">
+    <span class="section-icon">🕸</span>
+    <h2 class="section-title">Redes, Canastos &amp; Resinas</h2>
+  </div>
+
+  <div class="subsection-label">Antitranspirante &amp; Resinas</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="antitranspirante polvo manos redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/nam1_41-3242ea3d7a5378e59016875312469152-480-0.webp" alt="Polvo Antitranspirante" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">NERÓN</div>
+        <div class="product-name">Polvo Antitranspirante</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x3</span><span class="price-value">$2.920</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.490</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="resina liquida neron manos grip redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/nar1_11-0176bec7e64ac9d0ef16875342979371-480-0.webp" alt="Resina Líquida" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">NERÓN</div>
+        <div class="product-name">Resina Líquida</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x3</span><span class="price-value">$2.920</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.490</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="resina aerosol 2win redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/2win_1-8c2adf74769485da9117369024433607-480-0.webp" alt="Resina Aerosol" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">2WIN</div>
+        <div class="product-name">Resina Aerosol</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">Precio</span><span class="price-value">$11.681</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">Pickleball</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="pickleball madma pelotas rapida lenta redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/ball-lenta-97ec0234bf95c2fa7a17749122036163-480-0.webp" alt="Pelota Pickleball" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Pelotas Pickleball (Rápida o Lenta)</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x unidad</span><span class="price-value">$1.045</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="pickleball kit red estructura madma redes">
+      <div class="card-img-wrap" style="background:#1a2a1a;">
+        <span style="font-size:3rem;">🕸</span>
+      </div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Kit Red + Estructura Pickleball</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">Precio</span><span class="price-value">$157.101</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">Redes para Canchas</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="madma padel red simple cancha redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/maor11-fe2492520b2e0b8dd816803070591032-480-0.webp" alt="Red Simple Madma" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Red Simple Pádel</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$188.992</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="madma padel red doble cancha redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/mar2_31-b59cc0dd7b82942ec416932607553775-480-0.webp" alt="Red Doble Madma" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Red Doble Pádel</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$242.220</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odpro padel red simple cancha redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/red_11-09d10a52f630b11d0216456683050601-480-0.webp" alt="Red Simple ODPro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Red Simple Pádel</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$176.344</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="madma faja red padel cancha redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/mafaj1_11-2382ec735e388aaa2816803079279712-480-0.webp" alt="Faja Red" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Faja Red Pádel</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$72.000</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="madma tenis red simple cancha redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/maor11-fe2492520b2e0b8dd816803070591032-480-0.webp" alt="Red Simple Tenis" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Red Simple Tenis</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$201.374</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">Accesorios para Entrenamiento</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="canasto 70 pelotas odea entreno redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/canastoplegable_1-3feeeebe5ed8cb1d8717404110111647-480-0.webp" alt="Canasto 70 Odea" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Canasto 70 Pelotas</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$70.040</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="canasto 70 pelotas madma entreno redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/canastoplegable_1-e12ad7df192e7b8f5217329913700947-480-0.webp" alt="Canasto 70 Madma" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Canasto 70 Pelotas</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$53.716</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="canasto 90 pelotas madma entreno redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/canastoplegable_1-e12ad7df192e7b8f5217329913700947-480-0.webp" alt="Canasto 90 Madma" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">MADMA</div>
+        <div class="product-name">Canasto 90 Pelotas</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$69.427</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="canasto plegable odea entreno redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/canpleg_1-b62c97084b0ee6e62016989450304749-480-0.webp" alt="Canasto Plegable Odea" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Canasto Plegable</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$246.234</span></div></div>
+      </div>
+    </div>
+    <div class="product-card" data-search="tubo recoge 15 pelotas odpro entreno redes">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/transparente_1-778d747bd22b50d1ed17313428312694-480-0.webp" alt="Tubo Recoge Pelotas" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODPRO</div>
+        <div class="product-name">Tubo Recoge 15 Pelotas</div>
+        <div class="prices"><div class="price-row"><span class="price-label">Precio</span><span class="price-value">$29.400</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROTECTORES ═══════════ -->
+<section class="section cat-protectores" data-cat="protectores">
+  <div class="section-header">
+    <span class="section-icon">🛡</span>
+    <h2 class="section-title">Protectores para Paletas</h2>
+  </div>
+
+  <div class="subsection-label">HUBis</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="hubis vainilla transparente protector paleta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/protectorbc-5db45b503633d62a3c17263618490612-480-0.webp" alt="Hubis Transparente" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Vainilla Transparente</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x5</span><span class="price-value">$2.940</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.630</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis vainilla negro protector paleta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/protectorne-f749b6467410d48aee17263622217109-480-0.webp" alt="Hubis Negro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Vainilla Negro</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x5</span><span class="price-value">$1.990</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.780</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis dentado transparente protector paleta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/protectorbc-5db45b503633d62a3c17263618490612-480-0.webp" alt="Hubis Dentado Transparente" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Dentado Transparente</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x5</span><span class="price-value">$2.940</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$2.630</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="hubis dentado negro protector paleta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/protectorne-f749b6467410d48aee17263622217109-480-0.webp" alt="Hubis Dentado Negro" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">HUBis</div>
+        <div class="product-name">Dentado Negro</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x5</span><span class="price-value">$1.990</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$1.780</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-label">ODEA</div>
+  <div class="product-grid">
+    <div class="product-card" data-search="odea vainilla transparente protector paleta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/oap1_11-0cacc0150bc231872116736234316473-480-0.webp" alt="Odea Vainilla Transparente" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Vainilla Transparente</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x5</span><span class="price-value">$4.210</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$3.990</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" data-search="odea dentado transparente protector paleta">
+      <div class="card-img-wrap"><img src="https://acdn-us.mitiendanube.com/stores/001/323/888/products/nap2_11-044143a1460824069d16736234137034-480-0.webp" alt="Odea Dentado Transparente" loading="lazy"></div>
+      <div class="card-body">
+        <div class="product-brand">ODEA</div>
+        <div class="product-name">Dentado Transparente</div>
+        <div class="prices">
+          <div class="price-row"><span class="price-label">x5</span><span class="price-value">$4.980</span></div>
+          <div class="price-row"><span class="price-label">x10</span><span class="price-value">$4.730</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="empty-state" id="emptyState">
+  <div class="emoji">🔍</div>
+  <p>No se encontraron productos para "<span id="emptyTerm"></span>"</p>
+</div>
+
+</main>
+
+<footer>
+  <strong>NERÓN+</strong> &nbsp;·&nbsp; Distribuidor oficial de accesorios de pádel &nbsp;·&nbsp; Mayo 2026 &nbsp;·&nbsp; Todos los precios incluyen IVA &nbsp;·&nbsp; <a href="https://www.neron.com.ar" style="color:var(--yellow);text-decoration:none;">www.neron.com.ar</a>
+</footer>
+
+<script>
+  let activeFilter = 'all';
+
+  function setFilter(cat, btn) {
+    activeFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterAll();
+  }
+
+  function filterAll() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const sections = document.querySelectorAll('.section');
+    let totalVisible = 0;
+
+    sections.forEach(sec => {
+      const secCat = sec.getAttribute('data-cat');
+      const catMatch = activeFilter === 'all' || activeFilter === secCat;
+      if (!catMatch) { sec.classList.add('hidden'); return; }
+      sec.classList.remove('hidden');
+
+      const cards = sec.querySelectorAll('.product-card');
+      let vis = 0;
+      cards.forEach(card => {
+        const text = (card.getAttribute('data-search') || '') + ' ' + card.innerText.toLowerCase();
+        const show = !query || text.includes(query);
+        card.classList.toggle('hidden', !show);
+        if (show) vis++;
+      });
+      totalVisible += vis;
+      if (query && vis === 0) sec.classList.add('hidden');
+    });
+
+    const empty = document.getElementById('emptyState');
+    document.getElementById('emptyTerm').textContent = query;
+    empty.classList.toggle('visible', totalVisible === 0 && query.length > 0);
+  }
+</script>
+</body>
+</html>
