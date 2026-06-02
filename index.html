@@ -1553,8 +1553,7 @@ function enviarWhatsApp() {
 *TOTAL: $${Math.round(total).toLocaleString('es-AR')}*`);
   if (m2Unlocked) lines.push(`✅ Pedido con precios M2`);
 
-  const msg = encodeURIComponent(lines.join('
-'));
+  const msg = encodeURIComponent(lines.join('\n'));
   window.open(`https://wa.me/${NEGOCIO_WA}?text=${msg}`, '_blank');
 }
 </script>
